@@ -22,7 +22,7 @@
         <sonar.java.skip>true</sonar.java.skip>
             <sonar.java.binaries>target/classes</sonar.java.binaries> <!-- Adicione esta linha -->
 
-        <sonar.sources>codigos-gerados</sonar.sources>
+        <sonar.sources>src/main/java</sonar.sources>
         <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
 
         
