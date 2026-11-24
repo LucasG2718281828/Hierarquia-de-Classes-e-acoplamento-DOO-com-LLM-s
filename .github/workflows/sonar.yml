@@ -26,5 +26,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # Use apenas se for SonarQube Server (não Cloud)
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
