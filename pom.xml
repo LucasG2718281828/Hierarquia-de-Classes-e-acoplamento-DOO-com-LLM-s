@@ -25,6 +25,10 @@
         <sonar.sources>src/main/java</sonar.sources>
         <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
 
+        <sonar.cpd.exclusions>**/*.java</sonar.cpd.exclusions>
+
+        <sonar.exclusions>**/outros/**,**/*bruto*.java</sonar.exclusions>
+
         
     </properties>
 
