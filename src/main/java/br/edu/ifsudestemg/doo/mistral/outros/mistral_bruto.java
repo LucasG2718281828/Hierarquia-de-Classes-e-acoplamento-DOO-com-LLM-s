@@ -1,0 +1,1 @@
+ERRO NA API GROQ (llama-3.1-8b-instant): Error code: 404 - The model `llama-3.1-8b-instant` does not exist or you do not have access to it.

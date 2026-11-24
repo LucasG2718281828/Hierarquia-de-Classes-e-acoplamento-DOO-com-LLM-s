@@ -1,19 +1,22 @@
 import os
 import time
+import re
 from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv()
-GROQ_KEY = os.getenv("GROQ_API_KEY")
 
-# Cliente Groq
-client_groq = OpenAI(api_key=GROQ_KEY, base_url="https://api.groq.com/openai/v1")
+# Vamos usar o Groq para substituir o Mistral, pois ele tem cota melhor
+client_groq = OpenAI(api_key=os.getenv("GROQ_API_KEY"), base_url="https://api.groq.com/openai/v1")
 
-# Cole aqui apenas a lista de Atvs que você já tem (as 15)
-from gerar_codigos import Atvs
+# Importa as 15 atividades do seu script principal para não precisar copiar tudo
+# (Certifique-se de que o nome do arquivo principal seja gerar_codigos.py)
+from gerar_codigos import Atvs, salvar_estrutura
 
-# Função para gerar com um modelo específico do Groq
-def gerar_groq_modelo(prompt, modelo):
+# Sua instrução de formatação (a mesma que está no script principal)
+instrucao = "\n\nINSTRUÇÕES DE SAÍDA OBRIGATÓRIAS:\n1. NÃO use formatação Markdown.\n2. Na primeira linha, escreva: // --- DOMINIO: nome_do_dominio ---\n3. Para cada classe, escreva: // --- ARQUIVO: NomeDaClasse.java ---\n4. O pacote deve ser: package br.edu.ifsudestemg.doo.nome_do_dominio;\n5. Gere stubs para dependências."
+
+def gerar_groq_substituto(prompt, modelo):
     try:
         resp = client_groq.chat.completions.create(
             model=modelo,
@@ -24,30 +27,31 @@ def gerar_groq_modelo(prompt, modelo):
     except Exception as e:
         return f"ERRO NA API GROQ ({modelo}): {e}"
 
-# Pastas onde faltam códigos (gemini e mistral)
-os.makedirs("codigos-gerados/gemini", exist_ok=True)
-os.makedirs("codigos-gerados/mistral", exist_ok=True)
-
-print("🚀 Gerando códigos faltantes usando modelos do Groq...\n")
-
-for Atv in Atvs:
-    t_id = Atv["id"]
-    prompt = Atv["prompt"]
-    print(f"⏳ Gerando {t_id}...")
+def main():
+    print("🚀 Gerando códigos faltantes...\n")
     
-    # Usa um modelo do Groq para "substituir" o Gemini
-    # print("   -> Groq (como Gemini)...")
-    #codigo = gerar_groq_modelo(prompt, "openai/gpt-oss-20b")
-    #with open(f"codigos-gerados/gemini/{t_id}_groq_gemini.java", "w", encoding="utf-8") as f:
-     #   f.write(codigo)
-    
-    # Usa outro modelo do Groq para "substituir" o Mistral
-    print("   -> Groq (como Mistral)...")
-    codigo = gerar_groq_modelo(prompt, "openai/gpt-oss-20b")
-    with open(f"codigos-gerados/mistral/{t_id}_groq_mistral.java", "w", encoding="utf-8") as f:
-        f.write(codigo)
-    
-    print(f"✅ {t_id} concluída.\n")
-    time.sleep(3) # Pausa para não estourar o limite do Groq
+    for Atv in Atvs:
+        t_id = Atv["id"]
+        prompt_final = Atv["prompt"] + instrucao
+        
+        # 1. Corrigir a Atv11 que faltou no Groq
+        if t_id == "Atv11":
+            print(f"⏳ Gerando {t_id} (Groq faltante)...")
+            codigo = gerar_groq_substituto(prompt_final, "openai/gpt-oss-20b")
+            salvar_estrutura(codigo, "groq")
+            time.sleep(5)
+            
+        # 2. Substituir o Mistral pelo Groq (usando outro modelo para diversificar)
+        # Vamos usar o modelo llama-3.1-8b-instant para simular o Mistral
+        print(f"⏳ Gerando {t_id} (Substituto do Mistral)...")
+        codigo = gerar_groq_substituto(prompt_final, "openai/gpt-oss-20b")
+        # Salva na pasta mistral para manter a organização do relatório
+        salvar_estrutura(codigo, "mistral") 
+        
+        print(f"✅ {t_id} concluída.\n")
+        time.sleep(5)
 
-print("🎉 Todos os códigos faltantes foram gerados!")
+    print("🎉 Códigos faltantes gerados!")
+
+if __name__ == "__main__":
+    main()
