@@ -18,7 +18,6 @@
         <sonar.organization>lucasg2718281828</sonar.organization>
         
         <sonar.sources>src/main/java</sonar.sources>
-        <sonar.java.skip>true</sonar.java.skip>
         <sonar.cpd.exclusions>**/*.java</sonar.cpd.exclusions>
     </properties>
 </project>
