@@ -11,6 +11,8 @@
 .mtj.tmp/
 
 .env
+__pycache__/
+*.pyc
 
 # Package Files #
 *.jar
