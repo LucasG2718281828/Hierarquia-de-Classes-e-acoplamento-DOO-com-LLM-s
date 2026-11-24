@@ -1,4 +1,36 @@
-<properties>
-    <sonar.java.skip>true</sonar.java.skip>
-<sonar.sources>codigos-gerados</sonar.sources>
-</properties>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>br.edu.ifsudestemg.doo</groupId>
+    <artifactId>projeto-doo-llm</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <!-- CONFIGURAÇÕES DO SONARQUBE -->
+        <sonar.projectKey>LucasG2718281828_Hierarquia-de-Classes-e-acoplamento-DOO-com-LLM-s</sonar.projectKey>
+        <sonar.organization>lucasg2718281828</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        
+        <!-- IGNORAR COMPILAÇÃO E APONTAR PARA OS CÓDIGOS GERADOS -->
+        <sonar.java.skip>true</sonar.java.skip>
+        <sonar.sources>codigos-gerados</sonar.sources>
+        <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- Dependência do JUnit para os testes -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
