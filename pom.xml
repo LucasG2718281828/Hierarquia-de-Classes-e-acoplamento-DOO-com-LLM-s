@@ -13,6 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
+        
         <!-- CONFIGURAÇÕES DO SONARQUBE -->
         <sonar.projectKey>LucasG2718281828_Hierarquia-de-Classes-e-acoplamento-DOO-com-LLM-s</sonar.projectKey>
         <sonar.organization>lucasg2718281828</sonar.organization>
