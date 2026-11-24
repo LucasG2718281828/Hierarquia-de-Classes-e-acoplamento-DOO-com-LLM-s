@@ -1,6 +1,6 @@
 # Geração de Código Orientado a Objetos por LLM's: uma Análise da Qualidade de Herança sob Diferentes Hierarquias de classes e Contexto de Acoplamento
 
-Esse repositório pretence ao projeto final da disciplina de desenvolvimento orientado a objetos do IF Sudeste MG - Campus Manhuaçu.
+Esse repositório pretence ao projeto final da disciplina de desenvolvimento orientado a objetos do IF Sudeste MG - Campus Manhuaçu. 
 
 Esta análise é dedicada a entender e avaliar por perspectivas qualitativas de códigos gerados por agentes IA sobre o contexto de orientação a objetos utilizando java sobre o pretexto do quanto devemos confiar nas IA's como ferramentas diretas de desenvolvimento de códigos
 
