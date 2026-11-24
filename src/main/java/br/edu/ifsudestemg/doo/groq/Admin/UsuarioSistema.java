@@ -1,4 +1,4 @@
-package br.edu.ifsudestemg.doo.gemini.Admin;
+package br.edu.ifsudestemg.doo.groq.Admin;
 
 public class UsuarioSistema {
     protected AutenticadorMfa autenticadorMfa;

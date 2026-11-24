@@ -74,7 +74,6 @@ public class SimuladorFinanceiro {
         System.out.println("Taxa de Câmbio Atual: " + taxaCambioAtual);
 
         // Gerar gráfico de resultados (placeholder)
-        geradorGrafico.gerarGraficoSimulacao();
     }
 
     /**

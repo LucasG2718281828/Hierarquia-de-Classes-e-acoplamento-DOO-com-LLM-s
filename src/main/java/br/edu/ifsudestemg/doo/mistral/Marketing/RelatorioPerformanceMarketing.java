@@ -15,4 +15,8 @@ public class RelatorioPerformanceMarketing extends RelatorioAnalitico {
         this.setNomeRelatorio("Relatório de Performance de Marketing");
     }
 
-    public void consolidarPerformancePorCampanha(List<String> tenant
+    public void consolidarPerformancePorCampanha(List<String> tenant){
+        
+    }
+
+    }

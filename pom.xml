@@ -7,28 +7,18 @@
     <groupId>br.edu.ifsudestemg.doo</groupId>
     <artifactId>projeto-doo-llm</artifactId>
     <version>1.0-SNAPSHOT</version>
+    
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <!-- CONFIGURAÇÃO MÍNIMA DO SONAR -->
-        <!-- ATENÇÃO: Use o Project Key EXATO que o SonarCloud criar para você -->
         <sonar.projectKey>LucasG2718281828_Hierarquia-de-Classes-e-acoplamento-DOO-com-LLM-s</sonar.projectKey>
         <sonar.organization>lucasg2718281828</sonar.organization>
         
-        <!-- FORÇA O SONAR A LER O CÓDIGO SEM COMPILAR -->
-        <sonar.java.skip>true</sonar.java.skip>
         <sonar.sources>src/main/java</sonar.sources>
+        <sonar.java.skip>true</sonar.java.skip>
+        <sonar.cpd.exclusions>**/*.java</sonar.cpd.exclusions>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 </project>

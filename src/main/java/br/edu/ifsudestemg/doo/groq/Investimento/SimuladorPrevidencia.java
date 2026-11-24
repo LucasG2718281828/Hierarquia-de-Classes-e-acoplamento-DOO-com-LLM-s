@@ -17,5 +17,6 @@ public class SimuladorPrevidencia extends SimuladorFinanceiro {
               geradorGrafico, modeloRiscoVar, carteiraAtivos, cambioWs);
     }
 
-    @Override
-    public void simularProjecaoEstocastica(int
+    
+
+    }

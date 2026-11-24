@@ -52,4 +52,8 @@ public abstract class PersonagemJogo {
         if (vida < 0) vida = 0;
     }
 
-    public void processarComb
+    public void processarComb(){
+        System.out.println();
+    }
+
+}

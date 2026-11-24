@@ -7,4 +7,6 @@ public class Cor {
         this.nome = nome;
     }
 
-    public
+    
+
+}

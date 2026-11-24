@@ -10,4 +10,6 @@ public class Pedido {
     private String clienteTelefone;
 
     // Construtor
-    public Pedido(String
+    
+
+    }

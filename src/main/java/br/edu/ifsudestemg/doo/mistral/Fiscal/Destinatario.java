@@ -5,3 +5,6 @@ public class Destinatario {
     private String cpf;
 
     public Destinatario() {
+
+    }
+}

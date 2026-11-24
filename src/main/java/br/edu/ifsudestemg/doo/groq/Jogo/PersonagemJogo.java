@@ -87,4 +87,8 @@ public abstract class PersonagemJogo {
     }
 
     public void setDefesaBase(int defesaBase) {
-        this.defesaBase = defesa
+        this.defesaBase = defesaBase;
+
+    }
+
+}

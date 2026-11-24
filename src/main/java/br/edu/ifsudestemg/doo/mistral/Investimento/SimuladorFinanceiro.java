@@ -1,14 +1,5 @@
 package br.edu.ifsudestemg.doo.mistral.Investimento;
 
-import br.edu.ifsudestemg.doo.financeiro.IndiceBacen;
-import br.edu.ifsudestemg.doo.financeiro.CurvaJuros;
-import br.edu.ifsudestemg.doo.financeiro.TabelaRegressivaIr;
-import br.edu.ifsudestemg.doo.financeiro.BenchmarkIbov;
-import br.edu.ifsudestemg.doo.financeiro.GeradorGrafico;
-import br.edu.ifsudestemg.doo.financeiro.ModeloRiscoVar;
-import br.edu.ifsudestemg.doo.financeiro.CarteiraAtivos;
-import br.edu.ifsudestemg.doo.financeiro.CambioWs;
-
 public class SimuladorFinanceiro {
 
     private IndiceBacen indiceBacen;

@@ -10,3 +10,5 @@ public class Armadura {
     }
 
     public String getNome() { return nome; }
+
+}
