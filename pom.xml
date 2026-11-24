@@ -13,15 +13,19 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
-        
+
         <!-- CONFIGURAÇÕES DO SONARQUBE -->
         <sonar.projectKey>LucasG2718281828_Hierarquia-de-Classes-e-acoplamento-DOO-com-LLM-s</sonar.projectKey>
         <sonar.organization>lucasg2718281828</sonar.organization>
         
         <!-- IGNORAR COMPILAÇÃO E APONTAR PARA OS CÓDIGOS GERADOS -->
         <sonar.java.skip>true</sonar.java.skip>
+            <sonar.java.binaries>target/classes</sonar.java.binaries> <!-- Adicione esta linha -->
+
         <sonar.sources>codigos-gerados</sonar.sources>
         <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+
+        
     </properties>
 
     <dependencies>
