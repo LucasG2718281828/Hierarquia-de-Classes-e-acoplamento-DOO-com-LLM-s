@@ -16,7 +16,6 @@
         <!-- CONFIGURAÇÕES DO SONARQUBE -->
         <sonar.projectKey>LucasG2718281828_Hierarquia-de-Classes-e-acoplamento-DOO-com-LLM-s</sonar.projectKey>
         <sonar.organization>lucasg2718281828</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         
         <!-- IGNORAR COMPILAÇÃO E APONTAR PARA OS CÓDIGOS GERADOS -->
         <sonar.java.skip>true</sonar.java.skip>
