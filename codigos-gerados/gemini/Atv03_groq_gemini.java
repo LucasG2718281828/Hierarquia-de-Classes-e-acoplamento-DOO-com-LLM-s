@@ -24,10 +24,10 @@ public abstract class FormaGeometrica {
     public void setCor(Cor cor) {
         this.cor = cor;
     }
-}
-```
+}```
 
 ```java
+
 // Retangulo.java
 public class Retangulo extends FormaGeometrica {
 
@@ -55,8 +55,8 @@ public class Retangulo extends FormaGeometrica {
     @Override
     public void desenhar() {
         System.out.printf(
-            "Desenhando retângulo na cor %s: origem=(%.2f, %.2f), largura=%.2f, altura=%.2f%n",
-            cor, origem.getX(), origem.getY(), largura, altura);
+                "Desenhando retângulo na cor %s: origem=(%.2f, %.2f), largura=%.2f, altura=%.2f%n",
+                cor, origem.getX(), origem.getY(), largura, altura);
     }
 
     // Getters e setters
@@ -87,13 +87,13 @@ public class Retangulo extends FormaGeometrica {
     @Override
     public String toString() {
         return String.format(
-            "Retangulo[origem=%s, largura=%.2f, altura=%.2f, cor=%s]",
-            origem, largura, altura, cor);
+                "Retangulo[origem=%s, largura=%.2f, altura=%.2f, cor=%s]",
+                origem, largura, altura, cor);
     }
-}
-```
+}```
 
 ```java
+
 // Circulo.java
 public class Circulo extends FormaGeometrica {
 
@@ -117,8 +117,8 @@ public class Circulo extends FormaGeometrica {
     @Override
     public void desenhar() {
         System.out.printf(
-            "Desenhando círculo na cor %s: centro=(%.2f, %.2f), raio=%.2f%n",
-            cor, centro.getX(), centro.getY(), raio);
+                "Desenhando círculo na cor %s: centro=(%.2f, %.2f), raio=%.2f%n",
+                cor, centro.getX(), centro.getY(), raio);
     }
 
     // Getters e setters
@@ -141,15 +141,15 @@ public class Circulo extends FormaGeometrica {
     @Override
     public String toString() {
         return String.format(
-            "Circulo[centro=%s, raio=%.2f, cor=%s]",
-            centro, raio, cor);
+                "Circulo[centro=%s, raio=%.2f, cor=%s]",
+                centro, raio, cor);
     }
-}
-```
+}```
 
-**Dependências (stubs)**
+**Dependências(stubs)**
 
 ```java
+
 // Ponto2D.java
 public class Ponto2D {
 
@@ -181,14 +181,14 @@ public class Ponto2D {
     public String toString() {
         return String.format("(%.2f, %.2f)", x, y);
     }
-}
-```
+}```
 
 ```java
+
 // Cor.java
 public class Cor {
 
-    private String nome;   // Ex.: "vermelho", "#FF0000"
+    private String nome; // Ex.: "vermelho", "#FF0000"
 
     public Cor(String nome) {
         this.nome = nome;
@@ -206,7 +206,11 @@ public class Cor {
     public String toString() {
         return nome;
     }
-}
-```
+}```
 
-Esses arquivos compõem a hierarquia principal (`FormaGeometrica`, `Retangulo`, `Circulo`) e os stubs necessários (`Ponto2D`, `Cor`) para que o projeto compile e possa ser testado.
+Esses arquivos
+compõem a
+
+hierarquia principal (`FormaGeometrica`, `Retangulo`, `Circulo`) e os
+
+stubs necessários (`Ponto2D`, `Cor`) para que o projeto compile e possa ser testado.

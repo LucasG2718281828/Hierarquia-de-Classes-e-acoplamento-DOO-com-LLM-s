@@ -1,1 +1,18 @@
+-- Avaliação de códigos gerados na fase1
 
+Atividade	LLM	     Compilou?	  pass@K	Complexidade (Sonar)	Code Smells (Sonar)	Observações
+Atv-01	    Gemini	 Não	     	3            Sobrescrever emitirSom() e movimentar() na hierarquia de animais.
+Atv-02	    Gemini	 Não	     	3            Calcular consumo de combustível e aceleração herdando atributos de chassi.
+Atv-03	    Gemini	 Não	     	3            Implementar métodos abstratos calcularArea() e desenhar() em formas geométricas.
+Atv-04	    Gemini	 Não	     	2            Aplicar tarifas bancárias específicas sobrescrevendo sacar().
+Atv-05	    Gemini	 Não	     	2            Gerenciar ciclo de bateria e especificações de hardware portátil.
+Atv-06	    Gemini	 Não	     	3            Calcular bônus salarial e validar equipe subordinada do gestor.
+Atv-07	    Gemini	 Não	     	1            Processar sistema de combate e cálculo de dano com equipamentos.
+Atv-08	    Gemini	 Não	     	1            Efetuar pagamento com verificação antifraude e emissão de recibo.
+Atv-09	    Gemini	 Não	     	2            Validar, assinar digitalmente e calcular alíquotas de impostos fiscais.
+Atv-10	    Gemini	 Não	     	3            Calibrar e transmitir leituras ambientais via protocolo MQTT.
+Atv-11	    Gemini	 Não	     	1           Orquestrar despacho Atvpresso com roteirização GPS e seguro de carga.
+Atv-12	    Gemini	 Não	     	3            Atvecutar checkout com reserva de estoque, antifraude e CRM.
+Atv-13	    Gemini	 Não	     	0            Autenticar com MFA, auditar logs SIEM e sincronizar diretório LDAP.
+Atv-14	    Gemini	 Não	     	0            Simular projeção estocástica com curva de juros, inflação e câmbio.
+Atv-15	    Gemini	 Não	     	2            Consolidar métricas multitenant com cache Redis e exportação multi-formato.

@@ -1,5 +1,4 @@
-**Java – Hierarquia principal (Animal, Cachorro, Gato)**  
-```java
+**Java–Hierarquia principal(Animal,Cachorro,Gato)**```java
 // ──────────────────────────────────────────────────────────────────────
 // 1.  Classe abstrata Animal
 // ──────────────────────────────────────────────────────────────────────
@@ -20,7 +19,7 @@ public abstract class Animal {
     /* ---------- Atributos ---------- */
     private String nome;
     private int idade;
-    private Som som;          // composição – responsabilidade de reproduzir o som
+    private Som som; // composição – responsabilidade de reproduzir o som
     private Alimento alimento; // composição – responsabilidade de servir alimento
 
     /* ---------- Construtor ---------- */
@@ -88,12 +87,11 @@ public abstract class Animal {
     public String toString() {
         return String.format("Animal [nome=%s, idade=%d]", nome, idade);
     }
-}
-```
+}```
 
 ```java
 // ──────────────────────────────────────────────────────────────────────
-// 2.  Classe Cachorro (filha de Animal)
+// 2. Classe Cachorro (filha de Animal)
 // ──────────────────────────────────────────────────────────────────────
 package br.com.exemplo.animais;
 
@@ -122,12 +120,11 @@ public class Cachorro extends Animal {
     public void movimentar() {
         System.out.println(getNome() + " corre alegremente.");
     }
-}
-```
+}```
 
 ```java
 // ──────────────────────────────────────────────────────────────────────
-// 3.  Classe Gato (filha de Animal)
+// 3. Classe Gato (filha de Animal)
 // ──────────────────────────────────────────────────────────────────────
 package br.com.exemplo.animais;
 
@@ -135,8 +132,9 @@ import br.com.exemplo.dependencias.Som;
 import br.com.exemplo.dependencias.Alimento;
 
 /**
- * Representa um gato.  
- * Sobrescreve os métodos de comportamento para refletir o comportamento típico de um gato.
+ * Representa um gato.
+ * Sobrescreve os métodos de comportamento para refletir o comportamento típico
+ * de um gato.
  */
 public class Gato extends Animal {
 
@@ -155,92 +153,90 @@ public class Gato extends Animal {
     @Override
     public void movimentar() {
         System.out.println(getNome() + " se move silenciosamente.");
-    }
-}
-```
+    }}```
+
+    ---
+
+    **Java–Dependências(Som e Alimento)**```java
+    // ──────────────────────────────────────────────────────────────────────
+    // 4. Classe Som (stub)
+    // ──────────────────────────────────────────────────────────────────────
+    package br.com.exemplo.dependencias;
+
+    /**
+     * Stub da classe responsável por reproduzir sons.
+     * Apenas a estrutura mínima é fornecida para que o código compile.
+     */
+    public class Som {
+
+        /* ---------- Atributo opcional ---------- */
+        private String descricao;
+
+        /* ---------- Construtor ---------- */
+        public Som(String descricao) {
+            this.descricao = descricao;
+        }
+
+        /* ---------- Método de reprodução ---------- */
+        public void reproduzir() {
+            // Implementação fictícia – apenas exibe a descrição
+            System.out.println(descricao);
+        }
+
+        /* ---------- Getters / Setters ---------- */
+        public String getDescricao() {
+            return descricao;
+        }
+
+        public void setDescricao(String descricao) {
+            this.descricao = descricao;
+        }
+    }```
+
+    ```java
+    // ──────────────────────────────────────────────────────────────────────
+    // 5. Classe Alimento (stub)
+    // ──────────────────────────────────────────────────────────────────────
+package br.com.exemplo.dependencias;
+
+    /**
+     * Stub da classe responsável por servir alimento.
+     * Apenas a estrutura mínima é fornecida para que o código compile.
+     */
+    public class Alimento {
+
+        /* ---------- Atributo opcional ---------- */
+        private String tipo;
+
+        /* ---------- Construtor ---------- */
+        public Alimento(String tipo) {
+            this.tipo = tipo;
+        }
+
+        /* ---------- Método de serviço ---------- */
+        public void servir() {
+            // Implementação fictícia – apenas exibe o tipo de alimento
+            System.out.println("Servindo alimento: " + tipo);
+        }
+
+        /* ---------- Getters / Setters ---------- */
+        public String getTipo() {
+            return tipo;
+        }
+
+        public void setTipo(String tipo) {
+            this.tipo = tipo;
+        }
+}```
 
 ---
 
-**Java – Dependências (Som e Alimento)**  
-```java
-// ──────────────────────────────────────────────────────────────────────
-// 4.  Classe Som (stub)
-// ──────────────────────────────────────────────────────────────────────
-package br.com.exemplo.dependencias;
+###
 
-/**
- * Stub da classe responsável por reproduzir sons.
- * Apenas a estrutura mínima é fornecida para que o código compile.
- */
-public class Som {
+Como usar
 
-    /* ---------- Atributo opcional ---------- */
-    private String descricao;
-
-    /* ---------- Construtor ---------- */
-    public Som(String descricao) {
-        this.descricao = descricao;
-    }
-
-    /* ---------- Método de reprodução ---------- */
-    public void reproduzir() {
-        // Implementação fictícia – apenas exibe a descrição
-        System.out.println(descricao);
-    }
-
-    /* ---------- Getters / Setters ---------- */
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-}
 ```
-
-```java
-// ──────────────────────────────────────────────────────────────────────
-// 5.  Classe Alimento (stub)
-// ──────────────────────────────────────────────────────────────────────
-package br.com.exemplo.dependencias;
-
-/**
- * Stub da classe responsável por servir alimento.
- * Apenas a estrutura mínima é fornecida para que o código compile.
- */
-public class Alimento {
-
-    /* ---------- Atributo opcional ---------- */
-    private String tipo;
-
-    /* ---------- Construtor ---------- */
-    public Alimento(String tipo) {
-        this.tipo = tipo;
-    }
-
-    /* ---------- Método de serviço ---------- */
-    public void servir() {
-        // Implementação fictícia – apenas exibe o tipo de alimento
-        System.out.println("Servindo alimento: " + tipo);
-    }
-
-    /* ---------- Getters / Setters ---------- */
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-}
-```
-
----
-
-### Como usar
-
-```java
+java
 import br.com.exemplo.animais.Cachorro;
 import br.com.exemplo.animais.Gato;
 import br.com.exemplo.dependencias.Alimento;
@@ -265,7 +261,16 @@ public class Main {
         cat.movimentar();
         cat.getAlimento().servir();
     }
-}
-```
+}```
 
-O código acima compila e demonstra a hierarquia de classes, a composição com as dependências `Som` e `Alimento`, e a sobrescrita de métodos nas subclasses `Cachorro` e `Gato`.
+O código
+acima compila
+e demonstra
+a hierarquia
+de classes, a
+composição com
+as dependências`Som`e`Alimento`,
+e a
+sobrescrita de
+métodos nas subclasses`Cachorro`e`Gato`
+.

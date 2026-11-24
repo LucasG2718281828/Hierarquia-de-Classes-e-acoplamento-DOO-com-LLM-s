@@ -1,1 +1,4 @@
-
+<properties>
+    <sonar.java.skip>true</sonar.java.skip>
+<sonar.sources>codigos-gerados</sonar.sources>
+</properties>

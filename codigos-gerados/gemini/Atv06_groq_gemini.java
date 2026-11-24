@@ -1,4 +1,4 @@
-**Java – Hierarquia de Funcionários**
+**Java–Hierarquia de Funcionários**
 
 ```java
 // ---------------------------------------------------------------------------
@@ -14,19 +14,19 @@ public class Funcionario {
 
     /* Dependências */
     protected Departamento departamento;
-    protected Equipe equipe;                 // equipe subordinada (para gestores)
+    protected Equipe equipe; // equipe subordinada (para gestores)
     protected FolhaPagamento folhaPagamento;
     protected BonusPolicy bonusPolicy;
     protected Auditoria auditoria;
 
     /* ---------- Construtor ---------- */
     public Funcionario(int id,
-                       String nome,
-                       double salarioBase,
-                       Departamento departamento,
-                       FolhaPagamento folhaPagamento,
-                       BonusPolicy bonusPolicy,
-                       Auditoria auditoria) {
+            String nome,
+            double salarioBase,
+            Departamento departamento,
+            FolhaPagamento folhaPagamento,
+            BonusPolicy bonusPolicy,
+            Auditoria auditoria) {
 
         this.id = id;
         this.nome = nome;
@@ -52,38 +52,77 @@ public class Funcionario {
      */
     public boolean validarEquipeSubordinada() {
         if (equipe == null) {
-            return true;   // não há equipe a validar
+            return true; // não há equipe a validar
         }
         return equipe.isValid();
     }
 
     /* ---------- Getters / Setters ---------- */
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public double getSalarioBase() { return salarioBase; }
-    public void setSalarioBase(double salarioBase) { this.salarioBase = salarioBase; }
+    public String getNome() {
+        return nome;
+    }
 
-    public Departamento getDepartamento() { return departamento; }
-    public void setDepartamento(Departamento departamento) { this.departamento = departamento; }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public Equipe getEquipe() { return equipe; }
-    public void setEquipe(Equipe equipe) { this.equipe = equipe; }
+    public double getSalarioBase() {
+        return salarioBase;
+    }
 
-    public FolhaPagamento getFolhaPagamento() { return folhaPagamento; }
-    public void setFolhaPagamento(FolhaPagamento folhaPagamento) { this.folhaPagamento = folhaPagamento; }
+    public void setSalarioBase(double salarioBase) {
+        this.salarioBase = salarioBase;
+    }
 
-    public BonusPolicy getBonusPolicy() { return bonusPolicy; }
-    public void setBonusPolicy(BonusPolicy bonusPolicy) { this.bonusPolicy = bonusPolicy; }
+    public Departamento getDepartamento() {
+        return departamento;
+    }
 
-    public Auditoria getAuditoria() { return auditoria; }
-    public void setAuditoria(Auditoria auditoria) { this.auditoria = auditoria; }
-}
-```
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
+    public Equipe getEquipe() {
+        return equipe;
+    }
+
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
+    }
+
+    public FolhaPagamento getFolhaPagamento() {
+        return folhaPagamento;
+    }
+
+    public void setFolhaPagamento(FolhaPagamento folhaPagamento) {
+        this.folhaPagamento = folhaPagamento;
+    }
+
+    public BonusPolicy getBonusPolicy() {
+        return bonusPolicy;
+    }
+
+    public void setBonusPolicy(BonusPolicy bonusPolicy) {
+        this.bonusPolicy = bonusPolicy;
+    }
+
+    public Auditoria getAuditoria() {
+        return auditoria;
+    }
+
+    public void setAuditoria(Auditoria auditoria) {
+        this.auditoria = auditoria;
+    }
+}```
 
 ```java
 // ---------------------------------------------------------------------------
@@ -93,17 +132,17 @@ public class Funcionario {
 public class Gerente extends Funcionario {
 
     /* ---------- Atributos ---------- */
-    private int nivelGerencial;   // nível de autoridade do gerente
+    private int nivelGerencial; // nível de autoridade do gerente
 
     /* ---------- Construtor ---------- */
     public Gerente(int id,
-                   String nome,
-                   double salarioBase,
-                   Departamento departamento,
-                   FolhaPagamento folhaPagamento,
-                   BonusPolicy bonusPolicy,
-                   Auditoria auditoria,
-                   int nivelGerencial) {
+            String nome,
+            double salarioBase,
+            Departamento departamento,
+            FolhaPagamento folhaPagamento,
+            BonusPolicy bonusPolicy,
+            Auditoria auditoria,
+            int nivelGerencial) {
 
         super(id, nome, salarioBase, departamento, folhaPagamento, bonusPolicy, auditoria);
         this.nivelGerencial = nivelGerencial;
@@ -131,10 +170,14 @@ public class Gerente extends Funcionario {
 
     /* ---------- Getters / Setters ---------- */
 
-    public int getNivelGerencial() { return nivelGerencial; }
-    public void setNivelGerencial(int nivelGerencial) { this.nivelGerencial = nivelGerencial; }
-}
-```
+    public int getNivelGerencial() {
+        return nivelGerencial;
+    }
+
+    public void setNivelGerencial(int nivelGerencial) {
+        this.nivelGerencial = nivelGerencial;
+    }
+}```
 
 ```java
 // ---------------------------------------------------------------------------
@@ -144,17 +187,17 @@ public class Gerente extends Funcionario {
 public class Diretor extends Funcionario {
 
     /* ---------- Atributos ---------- */
-    private String areaResponsavel;   // área de atuação do diretor
+    private String areaResponsavel; // área de atuação do diretor
 
     /* ---------- Construtor ---------- */
     public Diretor(int id,
-                   String nome,
-                   double salarioBase,
-                   Departamento departamento,
-                   FolhaPagamento folhaPagamento,
-                   BonusPolicy bonusPolicy,
-                   Auditoria auditoria,
-                   String areaResponsavel) {
+            String nome,
+            double salarioBase,
+            Departamento departamento,
+            FolhaPagamento folhaPagamento,
+            BonusPolicy bonusPolicy,
+            Auditoria auditoria,
+            String areaResponsavel) {
 
         super(id, nome, salarioBase, departamento, folhaPagamento, bonusPolicy, auditoria);
         this.areaResponsavel = areaResponsavel;
@@ -168,5 +211,3 @@ public class Diretor extends Funcionario {
         // Diretor recebe 20% adicional sobre o bônus calculado
         return baseBonus * 1.20;
     }
-
-   

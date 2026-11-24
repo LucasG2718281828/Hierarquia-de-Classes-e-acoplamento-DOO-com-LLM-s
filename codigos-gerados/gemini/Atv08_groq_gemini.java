@@ -1,4 +1,4 @@
-**Java – Hierarquia de Pagamento**
+**Java–Hierarquia de Pagamento**
 
 ```java
 // ---------------------------------------------------------------------------
@@ -12,25 +12,29 @@
  */
 public abstract class MeioDePagamento {
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Atributos comuns a todos os meios de pagamento
-     * ----------------------------------------------------------------------- */
-    protected double valor;                     // valor da transação
-    protected Moeda moeda;                      // moeda da transação
-    protected GatewayPagamento gateway;         // gateway de pagamento
-    protected ValidadorFraude validadorFraude;   // serviço antifraude
-    protected Recibo recibo;                    // serviço de recibo
-    protected Notificacao notificacao;          // serviço de notificação
+     * -----------------------------------------------------------------------
+     */
+    protected double valor; // valor da transação
+    protected Moeda moeda; // moeda da transação
+    protected GatewayPagamento gateway; // gateway de pagamento
+    protected ValidadorFraude validadorFraude; // serviço antifraude
+    protected Recibo recibo; // serviço de recibo
+    protected Notificacao notificacao; // serviço de notificação
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Construtor
-     * ----------------------------------------------------------------------- */
+     * -----------------------------------------------------------------------
+     */
     public MeioDePagamento(double valor,
-                           Moeda moeda,
-                           GatewayPagamento gateway,
-                           ValidadorFraude validadorFraude,
-                           Recibo recibo,
-                           Notificacao notificacao) {
+            Moeda moeda,
+            GatewayPagamento gateway,
+            ValidadorFraude validadorFraude,
+            Recibo recibo,
+            Notificacao notificacao) {
         this.valor = valor;
         this.moeda = moeda;
         this.gateway = gateway;
@@ -39,9 +43,11 @@ public abstract class MeioDePagamento {
         this.notificacao = notificacao;
     }
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Método público que executa a transação
-     * ----------------------------------------------------------------------- */
+     * -----------------------------------------------------------------------
+     */
     public void efetuarPagamento() {
         // 1. Verifica se a transação não é fraudulenta
         if (validadorFraude.verificarFraude(valor, moeda)) {
@@ -59,13 +65,14 @@ public abstract class MeioDePagamento {
         }
     }
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Método abstrato que deve ser implementado pelas subclasses
      * para gerar o recibo específico do meio de pagamento
-     * ----------------------------------------------------------------------- */
+     * -----------------------------------------------------------------------
+     */
     protected abstract void emitirRecibo();
-}
-```
+}```
 
 ```java
 // ---------------------------------------------------------------------------
@@ -77,50 +84,65 @@ public abstract class MeioDePagamento {
  */
 public class CartaoCredito extends MeioDePagamento {
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Dados específicos do cartão
-     * ----------------------------------------------------------------------- */
+     * -----------------------------------------------------------------------
+     */
     private String numeroCartao;
     private String cvv;
     private String dataValidade;
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Construtor
-     * ----------------------------------------------------------------------- */
+     * -----------------------------------------------------------------------
+     */
     public CartaoCredito(double valor,
-                         Moeda moeda,
-                         GatewayPagamento gateway,
-                         ValidadorFraude validadorFraude,
-                         Recibo recibo,
-                         Notificacao notificacao,
-                         String numeroCartao,
-                         String cvv,
-                         String dataValidade) {
+            Moeda moeda,
+            GatewayPagamento gateway,
+            ValidadorFraude validadorFraude,
+            Recibo recibo,
+            Notificacao notificacao,
+            String numeroCartao,
+            String cvv,
+            String dataValidade) {
         super(valor, moeda, gateway, validadorFraude, recibo, notificacao);
         this.numeroCartao = numeroCartao;
         this.cvv = cvv;
         this.dataValidade = dataValidade;
     }
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Implementação do recibo específico para cartão de crédito
-     * ----------------------------------------------------------------------- */
+     * -----------------------------------------------------------------------
+     */
     @Override
     protected void emitirRecibo() {
         recibo.gerarRecibo("Cartão de Crédito",
-                           valor,
-                           moeda,
-                           numeroCartao);
+                valor,
+                moeda,
+                numeroCartao);
     }
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Getters (opcional)
-     * ----------------------------------------------------------------------- */
-    public String getNumeroCartao() { return numeroCartao; }
-    public String getCvv() { return cvv; }
-    public String getDataValidade() { return dataValidade; }
-}
-```
+     * -----------------------------------------------------------------------
+     */
+    public String getNumeroCartao() {
+        return numeroCartao;
+    }
+
+    public String getCvv() {
+        return cvv;
+    }
+
+    public String getDataValidade() {
+        return dataValidade;
+    }
+}```
 
 ```java
 // ---------------------------------------------------------------------------
@@ -132,42 +154,51 @@ public class CartaoCredito extends MeioDePagamento {
  */
 public class Pix extends MeioDePagamento {
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Dados específicos do Pix
-     * ----------------------------------------------------------------------- */
+     * -----------------------------------------------------------------------
+     */
     private String chavePix;
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Construtor
-     * ----------------------------------------------------------------------- */
+     * -----------------------------------------------------------------------
+     */
     public Pix(double valor,
-               Moeda moeda,
-               GatewayPagamento gateway,
-               ValidadorFraude validadorFraude,
-               Recibo recibo,
-               Notificacao notificacao,
-               String chavePix) {
+            Moeda moeda,
+            GatewayPagamento gateway,
+            ValidadorFraude validadorFraude,
+            Recibo recibo,
+            Notificacao notificacao,
+            String chavePix) {
         super(valor, moeda, gateway, validadorFraude, recibo, notificacao);
         this.chavePix = chavePix;
     }
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Implementação do recibo específico para Pix
-     * ----------------------------------------------------------------------- */
+     * -----------------------------------------------------------------------
+     */
     @Override
     protected void emitirRecibo() {
         recibo.gerarRecibo("Pix",
-                           valor,
-                           moeda,
-                           chavePix);
+                valor,
+                moeda,
+                chavePix);
     }
 
-    /* -----------------------------------------------------------------------
+    /*
+     * -----------------------------------------------------------------------
      * Getter (opcional)
-     * ----------------------------------------------------------------------- */
-    public String getChavePix() { return chavePix; }
-}
-```
+     * -----------------------------------------------------------------------
+     */
+    public String getChavePix() {
+        return chavePix;
+    }
+}```
 
 ```java
 // ---------------------------------------------------------------------------
@@ -187,4 +218,4 @@ public class GatewayPagamento {
  * Validador antifraude – stub para compilar.
  */
 public class ValidadorFraude {
-    public boolean verificarFraude(double valor, Moeda moeda) {
+public boolean verificarFraude(double valor, Moeda moeda) {
